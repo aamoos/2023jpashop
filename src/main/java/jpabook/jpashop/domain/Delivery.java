@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.aspectj.weaver.ast.Or;
 
+import static jakarta.persistence.FetchType.LAZY;
+
 /**
  * packageName    : jpabook.jpashop.domain
  * fileName       : Delivery
@@ -27,7 +29,7 @@ public class Delivery {
     @Column(name = "delivery_id")
     private Long id;
 
-    @OneToOne(mappedBy = "delivery")
+    @OneToOne(mappedBy = "delivery", fetch = LAZY)
     private Order order;
 
     @Embedded
